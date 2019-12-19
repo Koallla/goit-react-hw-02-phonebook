@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './app.module.css';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
@@ -27,17 +28,19 @@ export default class App extends Component {
 
   addContact = contact => {
     const findContact = findToMatch(this.state.contacts, contact);
-    // console.log(contact);
-    findContact
-      ? alert(`${findContact.name} is already in contacts`)
-      : this.setState(prevState => ({
-          contacts: [...prevState.contacts, contact],
-        }));
+    if (contact.name) {
+      // eslint-disable-next-line no-unused-expressions
+      findContact
+        ? alert(`${findContact.name} is already in contacts`)
+        : this.setState(prevState => ({
+            contacts: [...prevState.contacts, contact],
+          }));
+    } else {
+      alert('Input name!');
+    }
   };
 
   deleteContact = id => {
-    console.log(id);
-    console.log(this.state);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
@@ -48,7 +51,7 @@ export default class App extends Component {
     const filteredContacts = filterContacts(contacts, filter);
 
     return (
-      <div>
+      <div className={styles.container}>
         <h1>Phonebook</h1>
         <ContactForm
           onChange={this.handleChange}

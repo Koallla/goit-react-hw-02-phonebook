@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'short-id';
-
 import T from 'prop-types';
+import styles from './contactForm.module.css';
 
 export default class FormInput extends Component {
   static propTypes = {
@@ -38,24 +38,28 @@ export default class FormInput extends Component {
     const { name, number } = this.state;
     return (
       <>
-        <p>Name</p>
         <form onSubmit={this.handleSubmit}>
+          <p className={styles.text_form}>Name</p>
           <input
+            className={styles.input_form}
             type="text"
             name="name"
             value={name}
             onChange={this.handleChange}
             placeholder="Enter contact"
           />
-          <p>Number</p>
+          <p className={styles.text_form}>Number</p>
           <input
+            className={styles.input_form}
             type="text"
             name="number"
             value={number}
             onChange={this.handleChange}
             placeholder="Enter number"
           />
-          <button type="submit">Add contact</button>
+          <button className={styles.btn_submit} type="submit">
+            Add contact
+          </button>
         </form>
       </>
     );

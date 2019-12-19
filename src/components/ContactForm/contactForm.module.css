@@ -1,0 +1,14 @@
+.text_form {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input_form {
+  margin-bottom: 15px;
+}
+
+.btn_submit {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}

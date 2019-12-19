@@ -1,13 +1,16 @@
 import React from 'react';
-import shortid from 'short-id';
+// import shortid from 'short-id';
 import T from 'prop-types';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul>
       {contacts.map(el => (
-        <li key={shortid.generate()}>
+        <li key={el.id}>
           {el.name}: {el.number}
+          <button type="submit" onClick={() => onDelete(el.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
@@ -16,6 +19,7 @@ const ContactList = ({ contacts }) => {
 
 ContactList.propTypes = {
   contacts: T.arrayOf(T.shape({})).isRequired,
+  onDelete: T.func.isRequired,
 };
 
 export default ContactList;

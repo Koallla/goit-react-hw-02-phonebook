@@ -2,7 +2,7 @@ import React from 'react';
 import shortid from 'short-id';
 import T from 'prop-types';
 
-const Contacts = ({ contacts }) => {
+const ContactList = ({ contacts }) => {
   return (
     <ul>
       {contacts.map(el => (
@@ -14,8 +14,8 @@ const Contacts = ({ contacts }) => {
   );
 };
 
-Contacts.propTypes = {
+ContactList.propTypes = {
   contacts: T.arrayOf(T.shape({})).isRequired,
 };
 
-export default Contacts;
+export default ContactList;

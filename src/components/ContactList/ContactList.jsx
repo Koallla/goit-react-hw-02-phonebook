@@ -1,14 +1,21 @@
 import React from 'react';
-// import shortid from 'short-id';
 import T from 'prop-types';
+import styles from './contactList.module.css';
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {contacts.map(el => (
-        <li key={el.id}>
-          {el.name}: {el.number}
-          <button type="submit" onClick={() => onDelete(el.id)}>
+        <li className={styles.item} key={el.id}>
+          {' '}
+          <p className={styles.text}>
+            {el.name}: {el.number}{' '}
+          </p>
+          <button
+            className={styles.btn}
+            type="submit"
+            onClick={() => onDelete(el.id)}
+          >
             Delete
           </button>
         </li>

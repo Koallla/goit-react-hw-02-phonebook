@@ -29,7 +29,6 @@ export default class App extends Component {
   addContact = contact => {
     const findContact = findToMatch(this.state.contacts, contact);
     if (contact.name) {
-      // eslint-disable-next-line no-unused-expressions
       findContact
         ? alert(`${findContact.name} is already in contacts`)
         : this.setState(prevState => ({
@@ -52,7 +51,7 @@ export default class App extends Component {
 
     return (
       <div className={styles.container}>
-        <h1>Phonebook</h1>
+        <h1 className={styles.title}>Phonebook</h1>
         <ContactForm
           onChange={this.handleChange}
           onAddContact={this.addContact}

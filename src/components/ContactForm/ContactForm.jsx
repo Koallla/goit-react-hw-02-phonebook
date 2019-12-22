@@ -51,7 +51,7 @@ export default class FormInput extends Component {
           <p className={styles.text_form}>Number</p>
           <input
             className={styles.input_form}
-            type="text"
+            type="number"
             name="number"
             value={number}
             onChange={this.handleChange}
